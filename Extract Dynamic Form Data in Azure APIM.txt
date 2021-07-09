@@ -13,6 +13,9 @@
 <policies>
     <inbound>
         <base />
+	
+	<set-variable name="form_key" value="@(context.Request.Body.As<String>(preserveContent: true))" />
+	
 	<!-- Extract form value through key, here the form key is Endpoint and value will be Dynamic backend endpoint-->
         <set-variable name="form_endpoint" value="@{
         string s = context.Variables.GetValueOrDefault<string>("form_key");
